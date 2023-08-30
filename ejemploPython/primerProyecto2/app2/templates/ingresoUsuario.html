@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Primer template de Django</title>
+    </head>
+    <body>
+        <h1>Mi primer proyecto en django</h1>
+        <div>
+            <label>Ingrese su usuario</label>
+            <input type="text">
+        </div>
+        <div>
+            <label>Ingrese su contraseña</label>
+            <input type="password">
+        </div>
+        <div>
+            <h2>Usuarios de la aplicacion</h2>
+            {% for usuario in listaUsuarios %}
+            <div>
+                <h5>Nombre de usuario : {{ usuario.0 }}</h5>
+                <h5>Apellido de usuario: {{ usuario.1 }}</h5>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

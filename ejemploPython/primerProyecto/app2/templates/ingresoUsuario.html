@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Primer template de Django</title>
+        <link rel="stylesheet" href="{% static 'ingresoUsuario/index.css' %}">
+    </head>
+    <body>
+        <h1>Mi primer proyecto en django</h1>
+        <form method="post" action="{% url 'app2:ingresoUsuario' %}">
+            {% csrf_token %}
+            <div>
+                <label>Ingrese su nombre</label>
+                <input type="text" name="nombreUsuario">
+            </div>
+            <div>
+                <label id="nombreInfo">Ingrese su apellido</label>
+                <input type="text" name="apellidoUsuario">
+            </div>
+            <div>
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+        <div>
+            <h2>Usuarios de la aplicacion</h2>
+            {% for usuario in listaUsuarios %}
+            <div>
+                <h5>Nombre de usuario : {{ usuario.0 }}</h5>
+                <h5>Apellido de usuario: {{ usuario.1 }}</h5>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
